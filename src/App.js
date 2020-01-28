@@ -1,17 +1,13 @@
-import React, {Component} from 'react'
-import DataSearch from './Components/DataSearch'
+import React, {Component} from 'react';
+import SearchForm from './Components/SearchForm';
 
- class App extends Component{
+export default class App extends Component{
 
     render(){
         return(
-        
             <div className = "App">
-            <DataSearch />
-
+            <SearchForm />
             </div>
         )
     }
 }
-
-export default App;

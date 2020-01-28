@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
-import axios from 'axios'
-import CoinSource from './CoinSource'
-import LoadingData from './LoadingData'
+import React, {Component} from 'react';
+import axios from 'axios';
+import CoinData from './CoinData';
+import Loading from './Loading';
 
- class DataSearch extends Component {
+export default class SearchForm extends Component {
   
     state = {
         currency: '',
@@ -13,7 +13,7 @@ import LoadingData from './LoadingData'
         searchedCoin: {}
     }
 
-    componentDidMount(){
+    componentDidMount(){   //lifecycle method loading the coins list
         axios.get("https://api.coingecko.com/api/v3/coins/list")
             .then(res => {
                 this.setState({
@@ -23,13 +23,13 @@ import LoadingData from './LoadingData'
         })
     }
 
-    handleChange = (e) => {
+    handleChange = (e) => {         //handle changes in the input field
         this.setState({
             [e.target.name]: e.target.value
         });
     }
 
-    handleSubmit = (e) => {
+    handleSubmit = (e) => {         //Getting the coin's data from coingecko API
         e.preventDefault();
         let obj = this.state.coins.data.filter(coin => {
             return coin.name === this.state.currency;
@@ -41,7 +41,7 @@ import LoadingData from './LoadingData'
                     showData: true
                 })
             }).catch((err) => {
-                console.log(`An error is occurred`);
+                console.log(`An error has been occurred`);
             });
         console.log('Submit fired');
             }
@@ -50,10 +50,10 @@ import LoadingData from './LoadingData'
       return (
           <div>
               {!this.state.loading ? (
-                  <LoadingData />
+                  <Loading />
                 ) : (
                     <div>
-                    <form className="FormValid" onSubmit={this.handleSubmit}>
+                    <form className="Form" onSubmit={this.handleSubmit}>
                     <h1 className="Name">Crypto Wiki</h1>
                     <input className="search-input mb-2" width="60px"
                         type="text"  placeholder="Enter the Crypto Currency Name" name="currency" value={this.state.value} onChange={this.handleChange}
@@ -62,7 +62,7 @@ import LoadingData from './LoadingData'
                         
                     </form>
                     {!this.state.showData ? (<div> <p className="font-weight-bold text-center"> Search for a coin</p> </div>) : 
-                        (<CoinSource dataobj={this.state.searchedCoin} />)
+                        (<CoinData dataobj={this.state.searchedCoin} />)
                     }
                     </div>
                 )
@@ -73,4 +73,3 @@ import LoadingData from './LoadingData'
       
       }
     }
-    export default DataSearch;

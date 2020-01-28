@@ -1,9 +1,9 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
 
-class CoinSource extends Component{
+export default class CoinData extends Component{
 
-    componentDidMount(){
+    componentDidMount(){        //sample function to check the coin data
         console.log("Inside CheckData");
         console.log(this.props.dataobj);
     }
@@ -18,6 +18,9 @@ class CoinSource extends Component{
             </div>
             <div className="row result text-center">
                 <div className="col-xl-2 col-lg-2 col-md-2 result-table">
+                    
+                  {/* Creating table */}
+
                    <table border="1px" >
                        <tbody>
                      <tr>
@@ -51,5 +54,3 @@ class CoinSource extends Component{
         )
     }
 }
-
-export default CoinSource ;
