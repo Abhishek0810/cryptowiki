@@ -1,7 +1,7 @@
 import React, {Component} from 'react'
 
 
-class Fetchdata extends Component{
+class CoinSource extends Component{
 
     componentDidMount(){
         console.log("Inside CheckData");
@@ -52,4 +52,4 @@ class Fetchdata extends Component{
     }
 }
 
-export default Fetchdata ;
+export default CoinSource ;

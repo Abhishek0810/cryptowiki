@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 
-class Loading extends Component{
+export default class LoadingData extends Component{
     render(){
         return(
             <div className="text-center">
@@ -13,4 +13,3 @@ class Loading extends Component{
         )
     }
 }
-export default Loading;

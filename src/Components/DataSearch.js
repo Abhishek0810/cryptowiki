@@ -62,7 +62,7 @@ import LoadingData from './LoadingData'
                         
                     </form>
                     {!this.state.showData ? (<div> <p className="font-weight-bold text-center"> Search for a coin</p> </div>) : 
-                        (<Fetchdata dataobj={this.state.searchedCoin} />)
+                        (<CoinSource dataobj={this.state.searchedCoin} />)
                     }
                     </div>
                 )
